@@ -46,12 +46,12 @@ export default class spCms {
 
         // handbars 模板注册
         const views = require('koa-views')
-        this.rootMiddleware.use(views(__dirname + '/server/views', {
-            extension: 'ejs',
-            map: {
-                hbs: 'ejs'
-            }
-        }))
+        // this.rootMiddleware.use(views(__dirname + '/server/views', {
+        //     extension: 'ejs',
+        //     map: {
+        //         hbs: 'ejs'
+        //     }
+        // }))
     }
 
     /**
