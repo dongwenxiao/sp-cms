@@ -45,7 +45,7 @@ export default class spCms {
         Tag.configCollection('sp_cms_tag')
 
         // handbars 模板注册
-        const views = require('koa-views')
+        // const views = require('koa-views')
         // this.rootMiddleware.use(views(__dirname + '/server/views', {
         //     extension: 'ejs',
         //     map: {
