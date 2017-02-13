@@ -1,6 +1,6 @@
 {
     "name": "sp-cms",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "cms feature for sp-base",
     "main": "index.js",
     "scripts": {

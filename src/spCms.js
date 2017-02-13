@@ -1,4 +1,5 @@
 import { spMongoDB } from 'sp-mongo'
+import { mountCrudRouter } from 'sp-api/src/spApi'
 import Category from './server/models/Category'
 import Post from './server/models/Post'
 import Tag from './server/models/Tag'
@@ -37,12 +38,19 @@ export default class spCms {
         this.router = createRouter()
 
         // 配置数据库连接对象和表名
-        Category.configDAO(this.dao)
-        Category.configCollection('sp_cms_category')
-        Post.configDAO(this.dao)
-        Post.configCollection('sp_cms_post')
-        Tag.configDAO(this.dao)
-        Tag.configCollection('sp_cms_tag')
+        // Category.configDAO(this.dao)
+        // Category.configCollection('sp_cms_category')
+        // Post.configDAO(this.dao)
+        // Post.configCollection('sp_cms_post')
+        // Tag.configDAO(this.dao)
+        // Tag.configCollection('sp_cms_tag')
+
+        mountCrudRouter('sp_cms_category', this.router, this.dao)
+        mountCrudRouter('sp_cms_post', this.router, this.dao)
+        mountCrudRouter('sp_cms_tag', this.router, this.dao)
+        mountCrudRouter('sp_cms_nav', this.router, this.dao)
+        mountCrudRouter('sp_cms_banner', this.router, this.dao)
+
 
         // handbars 模板注册
         // const views = require('koa-views')
@@ -57,15 +65,15 @@ export default class spCms {
     /**
      * 挂载到主路由上
      *
-     * @memberOf ApiFactory
+     * @memberOf CmsFactory
      */
     mount() {
 
         // 挂载prefix路由
 
-        const apiRouter = new Router()
-        apiRouter.use(this.urlPrefix, this.router.routes(), this.router.allowedMethods())
-        this.rootRouter.use(apiRouter)
+        const cmsRouter = new Router()
+        cmsRouter.use(this.urlPrefix, this.router.routes(), this.router.allowedMethods())
+        this.rootRouter.use(cmsRouter)
 
     }
 

@@ -14,4 +14,7 @@ export default function createRouter() {
         .get('/test', async(ctx) => {
             ctx.body = 'test'
         })
+
+    .get('/post/:id', async(ctx) => { ctx.body = '' })
+    .get('/post/', async(ctx) => { ctx.body = '' })
 }

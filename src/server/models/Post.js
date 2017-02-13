@@ -17,4 +17,16 @@ export default class Post extends Model {
         this.refLink = refLink
     }
 
+    static async getPostByCategory(category) {
+        return await this.dao.find(this.collection, {
+            category
+        })
+    }
+
+    static async getPostByTag(tag) {
+        return await this.dao.find(this.collection, {
+            tag
+        })
+    }
+
 }
