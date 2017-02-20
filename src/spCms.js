@@ -51,6 +51,8 @@ export default class spCms {
         mountCrudRouter('sp_cms_nav', this.router, this.dao)
         mountCrudRouter('sp_cms_banner', this.router, this.dao)
 
+        // TODO 默认数据格式、html的urlencode处理
+
 
         // handbars 模板注册
         // const views = require('koa-views')
